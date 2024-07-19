@@ -22,7 +22,8 @@ namespace Employee_ManagementSystem.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Employees.ToListAsync());
+            var applicationDbcontext = _context.Employees.Include(e => e.Country).Include(e => e.Deparment).Include(e => e.Job).Include(e => e.Leave).Include(e => e.Rating).Include(e => e.State).Include(e => e.Supervisor);
+            return View(await applicationDbcontext.ToListAsync());
         }
 
         // GET: Employees/Details/5
@@ -34,6 +35,13 @@ namespace Employee_ManagementSystem.Controllers
             }
 
             var employee = await _context.Employees
+                .Include(e => e.Country)
+                .Include(e => e.Deparment)
+                .Include(e => e.Job)
+                .Include(e => e.Leave)
+                .Include(e => e.Rating)
+                .Include(e => e.State)
+                .Include(e => e.Supervisor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {
@@ -46,6 +54,13 @@ namespace Employee_ManagementSystem.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
+            ViewData["CountryId"] = new SelectList(_context.Countries, "Id", "CountryName");
+            ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "DeparmentName");
+            ViewData["JobId"] = new SelectList(_context.Jobs, "Id", "JobTitle");
+            ViewData["LeaveId"] = new SelectList(_context.Leaves, "Id", "LeaveStatus");
+            ViewData["RatingId"] = new SelectList(_context.Ratings, "Id", "RatingType");
+            ViewData["StateId"] = new SelectList(_context.States, "Id", "StateName");
+            ViewData["SupervisorId"] = new SelectList(_context.Supervisors, "Id", "Name");
             return View();
         }
 
@@ -54,7 +69,7 @@ namespace Employee_ManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,MiddleName,LastName,EmailAddress,PhoneNo")] Employee employee)
+        public async Task<IActionResult> Create( Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +77,13 @@ namespace Employee_ManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CountryId"] = new SelectList(_context.Countries, "Id", "CountryName", employee.CountryId);
+            ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "DeparmentName", employee.DepartmentId);
+            ViewData["JobId"] = new SelectList(_context.Jobs, "Id", "JobTitle", employee.JobId);
+            ViewData["LeaveId"] = new SelectList(_context.Leaves, "Id", "LeaveStatus", employee.LeaveId);
+            ViewData["RatingId"] = new SelectList(_context.Ratings, "Id", "RatingType", employee.RatingId);
+            ViewData["StateId"] = new SelectList(_context.States, "Id", "StateName", employee.StateId);
+            ViewData["SupervisorId"] = new SelectList(_context.Supervisors, "Id", "Name", employee.SupervisorId);
             return View(employee);
         }
 
@@ -78,6 +100,13 @@ namespace Employee_ManagementSystem.Controllers
             {
                 return NotFound();
             }
+            ViewData["CountryId"] = new SelectList(_context.Countries, "Id", "CountryName", employee.CountryId);
+            ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "DeparmentName", employee.DepartmentId);
+            ViewData["JobId"] = new SelectList(_context.Jobs, "Id", "JobTitle", employee.JobId);
+            ViewData["LeaveId"] = new SelectList(_context.Leaves, "Id", "LeaveStatus", employee.LeaveId);
+            ViewData["RatingId"] = new SelectList(_context.Ratings, "Id", "RatingType", employee.RatingId);
+            ViewData["StateId"] = new SelectList(_context.States, "Id", "StateName", employee.StateId);
+            ViewData["SupervisorId"] = new SelectList(_context.Supervisors, "Id", "Name", employee.SupervisorId);
             return View(employee);
         }
 
@@ -86,7 +115,7 @@ namespace Employee_ManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,MiddleName,LastName,EmailAddress,PhoneNo")] Employee employee)
+        public async Task<IActionResult> Edit(int id,  Employee employee)
         {
             if (id != employee.Id)
             {
@@ -113,6 +142,13 @@ namespace Employee_ManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CountryId"] = new SelectList(_context.Countries, "Id", "CountryName", employee.CountryId);
+            ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "DeparmentName", employee.DepartmentId);
+            ViewData["JobId"] = new SelectList(_context.Jobs, "Id", "JobTitle", employee.JobId);
+            ViewData["LeaveId"] = new SelectList(_context.Leaves, "Id", "LeaveStatus", employee.LeaveId);
+            ViewData["RatingId"] = new SelectList(_context.Ratings, "Id", "RatingType", employee.RatingId);
+            ViewData["StateId"] = new SelectList(_context.States, "Id", "StateName", employee.StateId);
+            ViewData["SupervisorId"] = new SelectList(_context.Supervisors, "Id", "Name", employee.SupervisorId);
             return View(employee);
         }
 
@@ -125,6 +161,13 @@ namespace Employee_ManagementSystem.Controllers
             }
 
             var employee = await _context.Employees
+                .Include(e => e.Country)
+                .Include(e => e.Deparment)
+                .Include(e => e.Job)
+                .Include(e => e.Leave)
+                .Include(e => e.Rating)
+                .Include(e => e.State)
+                .Include(e => e.Supervisor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {

@@ -1,17 +1,25 @@
 ﻿@model Employee_ManagementSystem.Models.Employee
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Employee";
 }
 
-<h1>Create Employee</h1>
+<div class="row pt-4 pb-4">
+<div class="col-6" style="text-align:left;">
+    <h1>Create Employee</h1>
+</div>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="col-6">
+    <a class="btn btn-warning" asp-action="Index"><i class="fa-solid fa-person-walking-arrow-loop-left"></i>&nbsp; Back to List</a>
+</div>
+</div>
+<br />
+
+<div class="row" width="100%">
+    <div class="col-md-8" width="100%">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-control">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
@@ -35,17 +43,52 @@
                 <label asp-for="PhoneNo" class="control-label"></label>
                 <input asp-for="PhoneNo" class="form-control" />
                 <span asp-validation-for="PhoneNo" class="text-danger"></span>
-            </div> <br />
-            <div class="form-group">
-                <input type="submit" value="+ Create" class="btn btn-success" />
-                <a class="btn btn-primary" asp-action="Index">Back to List</a>
             </div>
+            <div class="form-group">
+                <label asp-for="ResidentialAddress" class="control-label"></label>
+                <input asp-for="ResidentialAddress" class="form-control" />
+                <span asp-validation-for="ResidentialAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label"></label>
+                <select asp-for="CountryId" class ="form-control" asp-items="ViewBag.CountryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobId" class="control-label"></label>
+                <select asp-for="JobId" class ="form-control" asp-items="ViewBag.JobId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="control-label"></label>
+                <select asp-for="DepartmentId" class ="form-control" asp-items="ViewBag.DepartmentId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupervisorId" class="control-label"></label>
+                <select asp-for="SupervisorId" class ="form-control" asp-items="ViewBag.SupervisorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RatingId" class="control-label"></label>
+                <select asp-for="RatingId" class ="form-control" asp-items="ViewBag.RatingId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StateId" class="control-label"></label>
+                <select asp-for="StateId" class ="form-control" asp-items="ViewBag.StateId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeaveId" class="control-label"></label>
+                <select asp-for="LeaveId" class ="form-control" asp-items="ViewBag.LeaveId"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create Employee" class="btn btn-primary" />
+                @* <a class="btn btn-secondary" asp-action="Index"><i class="fa-solid fa-person-walking-arrow-loop-left">Back to List</a> *@
+            </div>
+
         </form>
     </div>
 </div>
 
 @* <div>
-    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+    <a class="btn btn.secondary" asp-action="Index">Back to List</a>
 </div> *@
 
 @section Scripts {

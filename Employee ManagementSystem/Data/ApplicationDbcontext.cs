@@ -11,6 +11,21 @@ namespace Employee_ManagementSystem.Data
         }
 
         // create the db tables using Dbset
+        public DbSet<Bio> BioData { get; set; }
         public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Country> Countries { get; set; }
+
+        public DbSet<Department> Departments { get; set; }
+
+        public DbSet<Job> Jobs { get; set; }
+
+        public DbSet<Leave> Leaves { get; set; }
+
+        public DbSet<Rating> Ratings { get; set; }
+
+        public DbSet<State> States { get; set; }
+
+        public DbSet<Supervisor> Supervisors { get; set; }
     }
 }

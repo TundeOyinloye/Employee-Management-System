@@ -3,18 +3,20 @@
 @{
     ViewData["Title"] = "Employee List";
 }
-<div class="row p-4">
-    <div class="col-6">
+
+<div class="row pt-4 pb-4">
+    <div class="col-6" style="text-align:left;">
         <h1>Employee List</h1>
     </div>
 
     <div class="col-6 text-end">
-        <a class="btn btn-success" asp-action="Create"><i class="fa fa-add"></i>&nbsp; Create New</a>
-</div>
+        <a class="btn btn-danger" asp-action="Create"><i class="fa-solid fa-user-plus fa-beat-fade"></i>&nbsp; Create New Employee</a>
+    </div>
 </div>
 <br />
 
-<table class="table">
+
+<table class="table" width="100%">
     <thead>
         <tr>
             <th>
@@ -33,7 +35,31 @@
                 @Html.DisplayNameFor(model => model.PhoneNo)
             </th>
             <th>
-               Edit
+                @Html.DisplayNameFor(model => model.ResidentialAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deparment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supervisor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave)
+            </th>
+            <th>
+                Edit
             </th>
             <th>
                 View
@@ -62,14 +88,32 @@
                 @Html.DisplayFor(modelItem => item.PhoneNo)
             </td>
             <td>
-                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil"></i>&nbsp; Edit</a> 
-             </td>
-            <td>
-                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i>&nbsp; Details</a>
+                @Html.DisplayFor(modelItem => item.ResidentialAddress)
             </td>
             <td>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i>&nbsp; Delete</a>
+                @Html.DisplayFor(modelItem => item.Country.CountryName)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deparment.DeparmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supervisor.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating.RatingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State.StateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leave.LeaveStatus)
+            </td>
+            <td><a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil"></i>&nbsp; Edit</a></td>
+            <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i>&nbsp; Details</a></td>
+            <td><a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i>&nbsp; Delete</a></td>
         </tr>
 }
     </tbody>
