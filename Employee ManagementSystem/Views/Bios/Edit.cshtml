@@ -4,9 +4,15 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="row pt-4 pb-4">
+    <div class="col-6" style="text-align:left;">
+        <h1>Edit Employee's Bio Data</h1>
+    </div>
 
-<h4>Bio</h4>
+    <div class="col-6">
+        <a class="btn btn-warning" asp-action="Index"><i class="fa-solid fa-person-walking-arrow-loop-left"></i>&nbsp; Back to List</a>
+    </div>
+</div>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,41 +24,49 @@
                 <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
                 <span asp-validation-for="EmployeeId" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="DateOfBirth" class="control-label"></label>
                 <input asp-for="DateOfBirth" class="form-control" />
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="LGA" class="control-label"></label>
                 <input asp-for="LGA" class="form-control" />
                 <span asp-validation-for="LGA" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="NextOfKin" class="control-label"></label>
                 <input asp-for="NextOfKin" class="form-control" />
                 <span asp-validation-for="NextOfKin" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="StateOfOrigin" class="control-label"></label>
                 <input asp-for="StateOfOrigin" class="form-control" />
                 <span asp-validation-for="StateOfOrigin" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="DateOfResumption" class="control-label"></label>
                 <input asp-for="DateOfResumption" class="form-control" />
                 <span asp-validation-for="DateOfResumption" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="SocialHandles" class="control-label"></label>
                 <input asp-for="SocialHandles" class="form-control" />
                 <span asp-validation-for="SocialHandles" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Remarks" class="control-label"></label>
                 <input asp-for="Remarks" class="form-control" />
                 <span asp-validation-for="Remarks" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -60,9 +74,9 @@
     </div>
 </div>
 
-<div>
+@* <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

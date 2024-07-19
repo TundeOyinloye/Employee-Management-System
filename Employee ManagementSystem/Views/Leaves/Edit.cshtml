@@ -4,9 +4,18 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="row pt-4 pb-4">
+<div class="col-6" style="text-align:left;">
+    <h1>Edit Leave Schedule</h1>
+</div>
 
-<h4>Leave</h4>
+<div class="col-6">
+    <a class="btn btn-warning" asp-action="Index"><i class="fa-solid fa-person-walking-arrow-loop-left"></i>&nbsp; Back to List</a>
+</div>
+</div>
+<br />
+
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,16 +27,17 @@
                 <input asp-for="LeaveStatus" class="form-control" />
                 <span asp-validation-for="LeaveStatus" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Update" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
+@* <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

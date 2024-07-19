@@ -4,11 +4,18 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="row pt-4 pb-4">
+<div class="col-6" style="text-align:left;">
+    <h1>Employee Details</h1>
+</div>
 
+<div class="col-6">
+    <a class="btn btn-warning" asp-action="Index"><i class="fa-solid fa-person-walking-arrow-loop-left"></i>&nbsp; Back to List</a>
+</div>
+</div>
+<br />
 <div>
-    <h4>Employee</h4>
-    <hr />
+       
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
@@ -50,47 +57,47 @@
             @Html.DisplayNameFor(model => model.Country)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Country.Id)
+            @Html.DisplayFor(model => model.Country.CountryName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Job)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Job.Id)
+            @Html.DisplayFor(model => model.Job.JobTitle)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Deparment)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Deparment.Id)
+            @Html.DisplayFor(model => model.Deparment.DeparmentName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Supervisor)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Supervisor.Id)
+            @Html.DisplayFor(model => model.Supervisor.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Rating)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rating.Id)
+            @Html.DisplayFor(model => model.Rating.RatingType)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.State)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.State.Id)
+            @Html.DisplayFor(model => model.State.StateName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Leave)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Leave.Id)
+            @Html.DisplayFor(model => model.Leave.LeaveStatus)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-success" asp-action="Edit" asp-route-id="@Model?.Id"><i class="fa-solid fa-pencil"></i>&nbsp;Edit</a>
+    @* <a class="btn btn-success" asp-action="Index"> <i class="fa-solid fa-person-walking-arrow-loop-left">Back to List</a> *@
 </div>

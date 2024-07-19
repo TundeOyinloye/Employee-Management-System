@@ -4,11 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="row pt-4 pb-4">
+    <div class="col-6" style="text-align:left;">
+        <h1>List of Job Roles</h1>
+    </div>
 
-<p>
+    <div class="col-6 text-end">
+        <a class="btn btn-success" asp-action="Create"><i class="fa-solid fa-person-walking-luggage fa-beat-fade"></i>&nbsp; Create Job Role</a>
+    </div>
+</div>
+
+@* <p>
     <a asp-action="Create">Create New</a>
-</p>
+</p> *@
 <table class="table">
     <thead>
         <tr>
@@ -30,11 +38,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.JobType)
             </td>
-            <td>
+
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i>&nbsp; Details</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i>&nbsp; Delete</a>
+                </td>
+
+
+           @*  <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+            </td> *@
         </tr>
 }
     </tbody>

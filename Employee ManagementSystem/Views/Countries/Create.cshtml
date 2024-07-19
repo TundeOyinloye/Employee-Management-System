@@ -4,9 +4,15 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="row pt-4 pb-4">
+    <div class="col-6" style="text-align:left;">
+        <h1>Create Country</h1>
+    </div>
 
-<h4>Country</h4>
+    <div class="col-6">
+        <a class="btn btn-warning" asp-action="Index"><i class="fa-solid fa-person-walking-arrow-loop-left"></i>&nbsp; Back to List</a>
+    </div>
+</div>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,11 +23,13 @@
                 <input asp-for="CountryCode" class="form-control" />
                 <span asp-validation-for="CountryCode" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="CountryName" class="control-label"></label>
                 <input asp-for="CountryName" class="form-control" />
                 <span asp-validation-for="CountryName" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -29,9 +37,9 @@
     </div>
 </div>
 
-<div>
+@* <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

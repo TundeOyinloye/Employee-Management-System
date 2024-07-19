@@ -48,7 +48,7 @@ namespace Employee_ManagementSystem.Controllers
         // GET: Bios/Create
         public IActionResult Create()
         {
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id");
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "FullName");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Employee_ManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", bio.EmployeeId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "FullName", bio.EmployeeId);
             return View(bio);
         }
 
@@ -82,7 +82,7 @@ namespace Employee_ManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", bio.EmployeeId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "FullName", bio.EmployeeId);
             return View(bio);
         }
 
@@ -118,7 +118,7 @@ namespace Employee_ManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", bio.EmployeeId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "FullName", bio.EmployeeId);
             return View(bio);
         }
 
