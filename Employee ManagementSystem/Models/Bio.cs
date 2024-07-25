@@ -13,7 +13,7 @@ namespace Employee_ManagementSystem.Models
         public required Employee Employee { get; set; }
 
         [DisplayName("Date of Birth")]
-        public required DateOnly DateOfBirth { get; set; }
+        public required DateOnly DateOfBirth { get; set; } //change datatype to DateTime
 
         [DisplayName("Local Government Area")]
         public required string LGA { get; set; }
@@ -25,7 +25,7 @@ namespace Employee_ManagementSystem.Models
         public string StateOfOrigin { get; set; }
 
         [DisplayName("Date of Resumption")]
-        public required DateOnly DateOfResumption { get; set; }
+        public required DateOnly DateOfResumption { get; set; } //change datatype to DateTime
 
         [DisplayName("Social Media Links")]
         public string SocialHandles { get; set; }
